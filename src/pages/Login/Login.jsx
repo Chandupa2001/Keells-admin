@@ -2,11 +2,14 @@ import React, { useState } from "react";
 import "./Login.css";
 import { assets } from "../../assets/assets";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordVisible, setPasswordVisible] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -63,7 +66,7 @@ function Login() {
           </button>
         </form>
         <p className="create-account">
-          Don't have an account? <span className="register">Register</span>
+          Don't have an account? <span className="register" onClick={() => navigate('/signUp')} >Register</span>
         </p>
       </div>
     </div>
