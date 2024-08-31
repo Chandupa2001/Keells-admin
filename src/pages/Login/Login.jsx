@@ -3,6 +3,7 @@ import "./Login.css";
 import { assets } from "../../assets/assets";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { firebase } from '../../configs/FirebaseConfig'
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -11,10 +12,29 @@ function Login() {
 
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     console.log("Email:", email);
     console.log("Password:", password);
+
+    if (email && password) {
+      try {
+          const response = await firebase.auth().signInWithEmailAndPassword(email, password);
+          if (response.user) {
+              const uid = response.user.uid;
+              const userRef = await firebase.firestore().collection('admin').doc(uid);
+              const userSnapshot = await userRef.get();
+
+              if (userSnapshot.exists) {
+                console.log("Logged In")
+              }
+          } else {
+              
+          }
+      } catch (error) {
+          
+      }
+  }
   };
 
   return (

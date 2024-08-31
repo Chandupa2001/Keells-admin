@@ -95,12 +95,12 @@ body {
     font-weight: 600;
   }
   
-  .create-account {
+  .footer {
       color: #6E726E;
       font-size: 15px;
   }
   
-  .register {
+  .loginText {
       color: #63bb43;
       cursor: pointer;
       font-weight: 500;
