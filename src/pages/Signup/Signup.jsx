@@ -3,6 +3,7 @@ import "./Signup.css";
 import { assets } from "../../assets/assets";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { firebase } from '../../configs/FirebaseConfig';
 
 function Signup() {
   const [name, setName] = useState("");
@@ -12,10 +13,37 @@ function Signup() {
 
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleSignUp = async (e) => {
     e.preventDefault();
-    console.log("Email:", email);
-    console.log("Password:", password);
+    console.log("Name: ", name);
+    console.log("Email: ", email);
+    console.log("Password: ", password);
+
+    if (name && email && password) {
+      try {
+        const response = await firebase.auth().createUserWithEmailAndPassword(email, password);
+
+        if (response.user) {
+          const uid = response.user.uid;
+          const data = {
+            id: uid,
+            name,
+            email
+          };
+
+          const userRef = firebase.firestore().collection('admin').doc(uid);
+          await userRef.set(data);
+
+          await firebase.auth().currentUser?.sendEmailVerification();
+          console.log("Success");
+          navigate('/');
+        } else {
+          console.log("User not available")
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    }
   };
 
   return (
@@ -28,7 +56,7 @@ function Signup() {
             <p>web control panel</p>
           </div>
         </div>
-        <form onSubmit={handleLogin}>
+        <form onSubmit={handleSignUp}>
           <div className="input-group">
             <label htmlFor="email">Name</label>
             <input
@@ -72,12 +100,12 @@ function Signup() {
               )}
             </div>
           </div>
-          <button type="submit" className="login-button">
+          <button onClick={handleSignUp} type="submit" className="login-button">
             Sign Up
           </button>
         </form>
-        <p className="create-account">
-          Already have an account? <span className="register" onClick={() => navigate('/')} >Login</span>
+        <p className="footer">
+          Already have an account? <span className="loginText" onClick={() => navigate('/')} >Login</span>
         </p>
       </div>
     </div>
