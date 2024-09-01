@@ -14,28 +14,35 @@ function Login() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    console.log("Email:", email);
-    console.log("Password:", password);
-
-    if (email && password) {
-      try {
-          const response = await firebase.auth().signInWithEmailAndPassword(email, password);
-          if (response.user) {
-              const uid = response.user.uid;
-              const userRef = await firebase.firestore().collection('admin').doc(uid);
-              const userSnapshot = await userRef.get();
-
-              if (userSnapshot.exists) {
-                console.log("Logged In")
-              }
-          } else {
-              
-          }
-      } catch (error) {
-          
+  
+    if (!email || !password) {
+      console.log("Email and password are required");
+      return;
+    }
+  
+    try {
+      const response = await firebase.auth().signInWithEmailAndPassword(email, password);
+      console.log("Firebase Authentication Response:", response);
+  
+      if (response.user) {
+        const uid = response.user.uid;
+        const userRef = firebase.firestore().collection('admin').doc(uid);
+        const userSnapshot = await userRef.get();
+  
+        if (userSnapshot.exists) {
+          console.log("Admin user found, logged in successfully");
+          navigate('/dashboard')
+        } else {
+          console.log("No admin found for these credentials");
+        }
+      } else {
+        console.log("User not found");
       }
-  }
+    } catch (error) {
+      console.error("Login Error:", error.message);
+    }
   };
+  
 
   return (
     <div className="login-container">
