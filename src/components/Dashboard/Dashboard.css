@@ -50,10 +50,9 @@
     transition: background-color 0.3s, padding 0.3s;
 }
 
-/* Specifically target NavLink inside sidebar-menu */
 .sidebar-menu li a {
-    color: white; /* Set text color to white */
-    text-decoration: none; /* Remove text decoration */
+    color: white; 
+    text-decoration: none; 
     display: flex;
     align-items: center;
     padding: 10px;
