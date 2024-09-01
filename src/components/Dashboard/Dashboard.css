@@ -1,0 +1,155 @@
+.container {
+    display: flex;
+    height: 100vh;
+    background-color: #ffffff;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #63BB43;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    height: 100vh;
+    transition: width 0.3s ease-in-out;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.941);
+}
+
+.logoName {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.logoName img {
+    width: 120px;
+    margin-bottom: 20px;
+    transition: width 0.3s ease-in-out;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+    margin-top: 10px;
+}
+
+.sidebar-menu li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    transition: background-color 0.3s, padding 0.3s;
+}
+
+/* Specifically target NavLink inside sidebar-menu */
+.sidebar-menu li a {
+    color: white; /* Set text color to white */
+    text-decoration: none; /* Remove text decoration */
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.sidebar-menu li a.active {
+    background-color: white;
+    color: #63BB43;
+    font-weight: bold;
+    width: 100%;
+}
+
+.sidebar-menu li:hover a {
+    background-color: #A2D68F;
+    color: #ffffff;
+    width: 100%;
+}
+
+.sidebar-menu .icon {
+    margin-right: 10px;
+    font-size: 18px;
+    transition: margin 0.3s, font-size 0.3s;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 100vh;
+}
+
+.header {
+    background-color: #E5E5E5;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-bottom: 1px solid #ddd;
+}
+
+.header h1 {
+    margin: 0;
+    color: #63BB43;
+    font-size: 28px;
+    font-weight: bold;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+.active-link {
+    background-color: #A2D68F;
+    color: #ffffff;
+}
+
+/* Media Query for Smaller Screens */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 80px; /* Reduce sidebar width */
+    }
+
+    .logoName img {
+        width: 60px; /* Reduce logo size */
+    }
+
+    .sidebar-menu li {
+        justify-content: center;
+        padding: 10px 0;
+    }
+
+    .sidebar-menu li span,
+    .sidebar-menu li > span {
+        display: none; /* Hide the text labels next to the icons */
+    }
+
+    .sidebar-menu .icon {
+        margin-right: 0; /* Remove margin between icon and text */
+        font-size: 24px; /* Increase icon size slightly */
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 15px;
+    }
+
+    .header h1 {
+        font-size: 20px; /* Reduce the header font size */
+    }
+
+    .sidebar-menu .icon {
+        font-size: 20px; /* Adjust icon size */
+    }
+}

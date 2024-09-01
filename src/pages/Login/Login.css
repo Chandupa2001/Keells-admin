@@ -1,7 +1,6 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #c7e6bb;
 }
 
 .login-container {
@@ -9,6 +8,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background-color: #c7e6bb;
 }
 
 .login-box {

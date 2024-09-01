@@ -1,8 +1,13 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Login from './pages/Login/Login';
 import './App.css';
 import Signup from './pages/Signup/Signup';
+import Dashboard from './components/Dashboard/Dashboard';
+import Home from './pages/Home/Home';
+import Add from './pages/Add/Add';
+import Items from './pages/Items/Items';
+import Orders from './pages/Orders/Orders';
 
 function App() {
   return (
@@ -11,6 +16,14 @@ function App() {
         <Routes>
           <Route path='/' element={<Login />} />
           <Route path='/signUp' element={<Signup />} />
+          <Route path="/dashboard" element={<Dashboard />}>
+            <Route path="home" element={<Home />} />
+            <Route path="add" element={<Add />} />
+            <Route path="items" element={<Items />} />
+            <Route path="orders" element={<Orders />} />
+          </Route>
+          {/* Redirect root path to dashboard home */}
+          <Route path="/" element={<Navigate to="/dashboard/home" />} />
         </Routes>
       </Router>
     </div>
