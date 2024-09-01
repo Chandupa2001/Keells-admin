@@ -31,7 +31,8 @@ function Login() {
   
         if (userSnapshot.exists) {
           console.log("Admin user found, logged in successfully");
-          navigate('/dashboard')
+          navigate('/dashboard/home');
+          localStorage.setItem('UserId', uid)
         } else {
           console.log("No admin found for these credentials");
         }
