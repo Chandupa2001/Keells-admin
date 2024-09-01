@@ -1,0 +1,114 @@
+/* Container for the add form */
+.add {
+    max-width: 600px;
+    margin: 0 auto; /* Center the form on the page */
+    padding: 20px;
+    background-color: #E5E5E5;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  }
+  
+  /* Common style for form fields */
+  .add p {
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  .add input[type="text"],
+  .add input[type="number"],
+  .add textarea,
+  .add select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+  
+  /* Adjust textarea height */
+  .add textarea {
+    resize: vertical;
+  }
+  
+  /* Style for product size container */
+  .size-input-container {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .size-value {
+    flex: 1;
+  }
+  
+  .size-type {
+    flex: 0.3;
+  }
+  
+  /* Flex container for category and price */
+  .add-category-price {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  /* Ensure category and price are responsive */
+  .add-category,
+  .add-price {
+    flex: 1;
+  }
+  
+  /* Style for the submit button */
+  .add-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #82C969;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Button hover effect */
+  .add-btn:hover {
+    background-color: #63BB43;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .add-category-price {
+      flex-direction: column;
+    }
+  
+    .add-btn {
+      font-size: 16px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .add {
+      padding: 15px;
+    }
+  
+    .add p {
+      font-size: 14px;
+    }
+  
+    .add input[type="text"],
+    .add input[type="number"],
+    .add textarea,
+    .add select {
+      font-size: 14px;
+    }
+  
+    .add-btn {
+      padding: 10px;
+      font-size: 14px;
+    }
+  }
+  
