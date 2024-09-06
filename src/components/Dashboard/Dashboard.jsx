@@ -5,6 +5,7 @@ import { assets } from '../../assets/assets';
 import { IoMdHome, IoIosAddCircle } from 'react-icons/io';
 import { FaClipboardList, FaUserCircle } from 'react-icons/fa';
 import { PiListChecksFill } from 'react-icons/pi';
+import { AiFillNotification } from 'react-icons/ai';
 
 function Dashboard() {
   return (
@@ -38,6 +39,18 @@ function Dashboard() {
             <NavLink to="orders" activeClassName="active-link">
               <PiListChecksFill className="icon" />
               <span>Orders</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="orders" activeClassName="active-link">
+              <PiListChecksFill className="icon" />
+              <span>Orders</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="orders" activeClassName="active-link">
+              <AiFillNotification className="icon" />
+              <span>Deals</span>
             </NavLink>
           </li>
         </ul>

@@ -10,6 +10,7 @@ function Home() {
     const [name, setName] = useState('');
     const [users, setUsers] = useState('');
     const [products, setProducts] = useState('');
+    const [orders, setOrders] = useState('');
 
     useEffect(() => {
         fetchData();
@@ -21,12 +22,14 @@ function Home() {
         const resAdmin = await firebase.firestore().collection('admin').doc(uid).get();
         const resUser = await firebase.firestore().collection('users').get();
         const resItem = await firebase.firestore().collection('items').get();
+        const resOrders = await firebase.firestore().collection('orders').get();
 
         const admin = await resAdmin.data();
         setName(admin.name);
 
         setUsers(resUser.size);
         setProducts(resItem.size);
+        setOrders(resOrders.size);
     }
 
     return (
@@ -53,7 +56,7 @@ function Home() {
                     <p className="box-title">Purchases</p>
                     <div className="box-items">
                         <PiListChecksBold className="box-icon" size={25} />
-                        <span className="box-text">10</span>
+                        <span className="box-text">{orders}</span>
                     </div>
                 </div>
             </div>
