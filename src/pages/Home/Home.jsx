@@ -9,6 +9,7 @@ function Home() {
 
     const [name, setName] = useState('');
     const [users, setUsers] = useState('');
+    const [products, setProducts] = useState('');
 
     useEffect(() => {
         fetchData();
@@ -19,11 +20,13 @@ function Home() {
         const uid = localStorage.getItem('UserId');
         const resAdmin = await firebase.firestore().collection('admin').doc(uid).get();
         const resUser = await firebase.firestore().collection('users').get();
+        const resItem = await firebase.firestore().collection('items').get();
 
         const admin = await resAdmin.data();
         setName(admin.name);
 
         setUsers(resUser.size);
+        setProducts(resItem.size);
     }
 
     return (
@@ -43,7 +46,7 @@ function Home() {
                     <p className="box-title">Products</p>
                     <div className="box-items">
                         <BsBoxSeam className="box-icon" size={25} />
-                        <span className="box-text">10</span>
+                        <span className="box-text">{products}</span>
                     </div>
                 </div>
                 <div className="container-box">
