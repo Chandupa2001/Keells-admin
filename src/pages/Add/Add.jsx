@@ -80,7 +80,7 @@ function Add() {
               <option value="" disabled>Select unit</option>
               <option value="g">g (grams)</option>
               <option value="kg">kg (kilograms)</option>
-              <option value="l">l (liters)</option>
+              <option value="L">L (liters)</option>
               <option value="ml">ml (milliliters)</option>
             </select>
           </div>
