@@ -8,6 +8,7 @@ import Home from './pages/Home/Home';
 import Add from './pages/Add/Add';
 import Items from './pages/Items/Items';
 import Orders from './pages/Orders/Orders';
+import Deals from './pages/Deals/Deals';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="add" element={<Add />} />
             <Route path="items" element={<Items />} />
             <Route path="orders" element={<Orders />} />
+            <Route path="deals" element={<Deals />} />
           </Route>
           {/* Redirect root path to dashboard home */}
           <Route path="/" element={<Navigate to="/dashboard/home" />} />

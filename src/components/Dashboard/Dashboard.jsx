@@ -42,13 +42,7 @@ function Dashboard() {
             </NavLink>
           </li>
           <li>
-            <NavLink to="orders" activeClassName="active-link">
-              <PiListChecksFill className="icon" />
-              <span>Orders</span>
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="orders" activeClassName="active-link">
+            <NavLink to="deals" activeClassName="active-link">
               <AiFillNotification className="icon" />
               <span>Deals</span>
             </NavLink>
