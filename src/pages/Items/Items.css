@@ -1,0 +1,32 @@
+.table-container {
+    width: 100%;
+    padding: 20px;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+.items-table {
+    width: 98%;
+    border-collapse: collapse;
+}
+
+.items-table th, .items-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.items-table th {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.items-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.items-table tr:hover {
+    background-color: #f1f1f1;
+}
