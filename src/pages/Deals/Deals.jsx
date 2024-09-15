@@ -1,10 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./Deals.css";
+import { firebase } from '../../configs/FirebaseConfig';
 
 function Deals() {
+
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState(''); 
+
+  const handleAdd = async (event) => {
+    event.preventDefault();
+
+    try {
+      await firebase.firestore().collection('deals').add({
+        title,
+        description,
+        startDate,
+        endDate
+      });
+      console.log("Deal added.");
+      
+      setTitle('');
+      setDescription('');
+      setStartDate('');
+      setEndDate('');
+    } catch (error) {
+      console.error("Error adding deal: ", error);
+    }
+  }
+
   return (
     <div className="deals">
-      <form className='deal-form'>
+      <form className='deal-form' onSubmit={handleAdd} >
         <div className="form-group">
           <label htmlFor="title">Title</label>
           <input
@@ -12,6 +40,7 @@ function Deals() {
             id="title"
             placeholder="Enter deal title"
             className="form-input"
+            onChange={(e) => setTitle(e.target.value)}
           />
         </div>
         
@@ -22,6 +51,7 @@ function Deals() {
             id="description"
             placeholder="Enter description"
             className="form-input"
+            onChange={(e) => setDescription(e.target.value)}
           />
         </div>
         
@@ -32,6 +62,7 @@ function Deals() {
               type="date"
               id="startDate"
               className="form-input"
+              onChange={(e) => setStartDate(e.target.value)}
             />
           </div>
           
@@ -41,6 +72,7 @@ function Deals() {
               type="date"
               id="endDate"
               className="form-input"
+              onChange={(e) => setEndDate(e.target.value)}
             />
           </div>
         </div>

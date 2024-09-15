@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./Add.css";
 import { firebase } from '../../configs/FirebaseConfig';
 
@@ -35,10 +35,6 @@ function Add() {
       console.error("Error adding item: ", error);
     }
   }
-
-  useEffect(() => {
-    console.log(unit);
-  }, [unit]);
 
   return (
     <div className="add">
