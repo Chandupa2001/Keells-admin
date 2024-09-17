@@ -1,0 +1,100 @@
+.edit {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #e5e5e5;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.edit p {
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #333;
+}
+
+.edit input[type="text"],
+.edit input[type="number"],
+.edit textarea,
+.edit select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.size-input-container {
+  display: flex;
+  gap: 10px;
+}
+
+.size-value {
+  flex: 1;
+}
+
+.size-type {
+  flex: 0.3;
+}
+
+.edit-category-price {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.edit-category,
+.edit-price {
+  flex: 1;
+}
+
+.edit-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #63bb43;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.edit-btn:hover {
+  background-color: #82c969;
+}
+
+@media (max-width: 768px) {
+  .edit-category-price {
+    flex-direction: column;
+  }
+
+  .edit-btn {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .edit {
+    padding: 15px;
+  }
+
+  .edit p {
+    font-size: 14px;
+  }
+
+  .edit input[type="text"],
+  .edit input[type="number"],
+  .edit textarea,
+  .edit select {
+    font-size: 14px;
+  }
+
+  .edit-btn {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
