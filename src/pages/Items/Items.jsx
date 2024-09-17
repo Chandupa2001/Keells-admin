@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "./Items.css";
 import { firebase } from "../../configs/FirebaseConfig";
+import { FaRegEdit } from "react-icons/fa";
+import { MdDelete } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 function Items() {
   const [items, setItems] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchData();
@@ -26,6 +31,25 @@ function Items() {
     }
   };
 
+  const onDeletePress = async (id) => {
+    await firebase
+      .firestore()
+      .collection("items")
+      .doc(id)
+      .delete()
+      .then(() => {
+        console.log("Record Deleted");
+        fetchData();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const onEditPress = async (id) => {
+    navigate(`/editItem/${id}`)
+  }
+
   return (
     <div>
       <div className="table-container">
@@ -39,6 +63,8 @@ function Items() {
               <th>Size</th>
               <th>Unit</th>
               <th>Price</th>
+              <th>Edit</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -50,6 +76,16 @@ function Items() {
                 <td>{item.productSize}</td>
                 <td>{item.unit}</td>
                 <td>{item.price}</td>
+                <td>
+                  <button onClick={() => onEditPress(item.id)}>
+                    <FaRegEdit color="#6E726E" size={20} />
+                  </button>
+                </td>
+                <td>
+                  <button onClick={() => onDeletePress(item.id)}>
+                    <MdDelete color="red" size={20} />
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>

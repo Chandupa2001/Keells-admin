@@ -11,6 +11,7 @@ import Orders from './pages/Orders/Orders';
 import Deals from './pages/Add Deals/Deals';
 import View from './pages/View Deals/View';
 import EditDeals from './pages/View Deals/EditDeals';
+import EditItem from './pages/Items/EditItem';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           {/* Redirect root path to dashboard home */}
           <Route path="/" element={<Navigate to="/dashboard/home" />} />
           <Route path='/editDeal/:id' element={<EditDeals />} />
+          <Route path='/editItem/:id' element={<EditItem />} />
         </Routes>
       </Router>
     </div>
