@@ -40,6 +40,7 @@ function Deals() {
             id="title"
             placeholder="Enter deal title"
             className="form-input"
+            value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
         </div>
@@ -51,6 +52,7 @@ function Deals() {
             id="description"
             placeholder="Enter description"
             className="form-input"
+            value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
         </div>
@@ -62,6 +64,7 @@ function Deals() {
               type="date"
               id="startDate"
               className="form-input"
+              value={startDate}
               onChange={(e) => setStartDate(e.target.value)}
             />
           </div>
@@ -72,6 +75,7 @@ function Deals() {
               type="date"
               id="endDate"
               className="form-input"
+              value={endDate}
               onChange={(e) => setEndDate(e.target.value)}
             />
           </div>

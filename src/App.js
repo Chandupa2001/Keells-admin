@@ -8,8 +8,9 @@ import Home from './pages/Home/Home';
 import Add from './pages/Add/Add';
 import Items from './pages/Items/Items';
 import Orders from './pages/Orders/Orders';
-import Deals from './pages/Deals/Deals';
-import View from './pages/Deals/View';
+import Deals from './pages/Add Deals/Deals';
+import View from './pages/View Deals/View';
+import EditDeals from './pages/View Deals/EditDeals';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           </Route>
           {/* Redirect root path to dashboard home */}
           <Route path="/" element={<Navigate to="/dashboard/home" />} />
+          <Route path='/editDeal/:id' element={<EditDeals />} />
         </Routes>
       </Router>
     </div>
