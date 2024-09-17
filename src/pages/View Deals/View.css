@@ -30,3 +30,11 @@ h2 {
 .deals-table tr:hover {
     background-color: #f1f1f1;
 }
+
+.deals-table button {
+    border-width: 0;
+}
+
+.deals-table button:hover {
+    background-color: #333;
+}
