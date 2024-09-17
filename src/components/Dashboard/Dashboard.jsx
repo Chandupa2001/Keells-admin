@@ -44,7 +44,13 @@ function Dashboard() {
           <li>
             <NavLink to="deals" activeClassName="active-link">
               <AiFillNotification className="icon" />
-              <span>Deals</span>
+              <span>Add Deals</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="view" activeClassName="active-link">
+              <AiFillNotification className="icon" />
+              <span>View Deals</span>
             </NavLink>
           </li>
         </ul>
